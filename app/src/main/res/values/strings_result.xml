@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 1. نصوص النشاط 3 (الشخص C) -->
+    <string name="msg_approuve">Bon voyage %1$s</string>
+    <string name="msg_refuse">%1$s est en état d\'arrestation temporelle</string>
+    <string name="btn_nouveau">Nouveau voyageur</string>
+</resources>

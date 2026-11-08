@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 1. نصوص النشاط 2 (الشخص B) -->
+    <string name="titre_passeport">PASSEPORT TEMPOREL</string>
+    <string name="label_nom">Nom : %1$s</string>
+    <string name="label_age">Âge temporel : %1$d ans</string>
+    <string name="label_motif_aff">Motif : %1$s</string>
+    <string name="alerte_paradoxe">⚠ Risque de paradoxe détecté</string>
+    <string name="btn_approuver">Approuver le saut temporel</string>
+    <string name="btn_refuser">Refuser (Risque de paradoxe)</string>
+</resources>

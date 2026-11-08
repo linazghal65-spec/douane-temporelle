@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 1. واجهة النشاط 1: استمارة تسجيل المسافر -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <!-- 2. حاوية عمودية لكل الحقول -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- 3. العنوان -->
+        <TextView
+            android:id="@+id/tv_titre_ha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/titre_main"
+            android:textSize="26sp"
+            android:textStyle="bold" />
+
+        <!-- 4. اسم المسافر -->
+        <EditText
+            android:id="@+id/et_nom_ha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:hint="@string/hint_nom"
+            android:inputType="textPersonName" />
+
+        <!-- 5. سنة الميلاد (4 أرقام كحد أقصى) -->
+        <EditText
+            android:id="@+id/et_naissance_ha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_naissance"
+            android:inputType="number"
+            android:maxLength="4" />
+
+        <!-- 6. سنة الوجهة (4 أرقام كحد أقصى) -->
+        <EditText
+            android:id="@+id/et_destination_ha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_destination"
+            android:inputType="number"
+            android:maxLength="4" />
+
+        <!-- 7. عنوان قسم دافع السفر -->
+        <TextView
+            android:id="@+id/tv_motif_label_ha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/label_motif"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <!-- 8. أزرار الراديو لاختيار الدافع -->
+        <RadioGroup
+            android:id="@+id/rg_motif_ha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/rb_tourisme_ha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/motif_tourisme" />
+
+            <RadioButton
+                android:id="@+id/rb_modification_ha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/motif_modification" />
+
+            <RadioButton
+                android:id="@+id/rb_fuite_ha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/motif_fuite" />
+        </RadioGroup>
+
+        <!-- 9. زر فحص الملف الشخصي -->
+        <Button
+            android:id="@+id/btn_inspecter_ha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/btn_inspecter" />
+
+    </LinearLayout>
+</ScrollView>

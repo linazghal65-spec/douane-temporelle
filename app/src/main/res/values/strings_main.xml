@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 1. نصوص النشاط 1 (الشخص A) -->
+    <string name="titre_main">Douane Temporelle</string>
+    <string name="hint_nom">Nom du voyageur</string>
+    <string name="hint_naissance">Année de naissance (ex: 1990)</string>
+    <string name="hint_destination">Année de destination (ex: 2050)</string>
+    <string name="label_motif">Motif du voyage</string>
+    <string name="btn_inspecter">Inspecter le profil</string>
+    <string name="erreur_nom">Veuillez saisir le nom</string>
+    <string name="erreur_naissance">Année de naissance invalide</string>
+    <string name="erreur_destination">Année de destination invalide</string>
+    <string name="erreur_motif">Veuillez choisir un motif</string>
+</resources>

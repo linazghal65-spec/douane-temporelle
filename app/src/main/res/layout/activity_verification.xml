@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 1. الجذر: LinearLayout أفقي (إجباري حسب الشروط) -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5E9C8"
+    android:orientation="horizontal"
+    android:weightSum="1">
+
+    <!-- 2. على اليسار: صورة بوزن 0.3 -->
+    <ImageView
+        android:id="@+id/iv_passeport_aj"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.3"
+        android:contentDescription="@string/titre_passeport"
+        android:padding="8dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_passeport" />
+
+    <!-- 3. على اليمين: RelativeLayout بوزن 0.7 للنصوص -->
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.7"
+        android:padding="12dp">
+
+        <!-- 3.1 عنوان الجواز -->
+        <TextView
+            android:id="@+id/tv_titre_passeport_aj"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:gravity="center"
+            android:text="@string/titre_passeport"
+            android:textColor="#3E2723"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <!-- 3.2 اسم المسافر -->
+        <TextView
+            android:id="@+id/tv_nom_aj"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_titre_passeport_aj"
+            android:layout_marginTop="16dp"
+            android:textColor="#3E2723"
+            android:textSize="16sp" />
+
+        <!-- 3.3 العمر الزمني -->
+        <TextView
+            android:id="@+id/tv_age_aj"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_nom_aj"
+            android:layout_marginTop="8dp"
+            android:textColor="#3E2723"
+            android:textSize="16sp" />
+
+        <!-- 3.4 دافع السفر -->
+        <TextView
+            android:id="@+id/tv_motif_aj"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_age_aj"
+            android:layout_marginTop="8dp"
+            android:textColor="#3E2723"
+            android:textSize="16sp" />
+
+        <!-- 3.5 تحذير المفارقة (مخفي افتراضيا) -->
+        <TextView
+            android:id="@+id/tv_alerte_aj"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_motif_aj"
+            android:layout_marginTop="12dp"
+            android:text="@string/alerte_paradoxe"
+            android:textColor="#C62828"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+        <!-- 3.6 زر الموافقة -->
+        <Button
+            android:id="@+id/btn_approuver_aj"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_alerte_aj"
+            android:layout_marginTop="16dp"
+            android:text="@string/btn_approuver" />
+
+        <!-- 3.7 زر الرفض -->
+        <Button
+            android:id="@+id/btn_refuser_aj"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btn_approuver_aj"
+            android:text="@string/btn_refuser" />
+
+    </RelativeLayout>
+</LinearLayout>
