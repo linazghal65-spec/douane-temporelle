@@ -1,5 +1,5 @@
 package com.example.douaneapp;
-
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.Button;
@@ -42,5 +42,14 @@ public class ResultActivity extends AppCompatActivity {
             root.setBackgroundColor(Color.parseColor("#C62828"));
             tvMessage.setText(getString(R.string.msg_refuse, nom));
         }
+        // 5. زر "مسافر جديد": العودة إلى النشاط الرئيسي مع إغلاق كل الأنشطة السابقة
+        btnNouveau.setOnClickListener(v -> {
+            Intent intent = new Intent(ResultActivity.this, MainActivity.class);
+            // 5.1 NEW_TASK + CLEAR_TASK: يمسح كل الأنشطة السابقة ويبدأ استمارة جديدة فارغة
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            // 5.2 إغلاق هذا النشاط
+            finish();
+        });
     }
 }
