@@ -44,6 +44,11 @@ public class VerificationActivity extends AppCompatActivity {
 
         // 3) حساب العمر الزمني = سنة الوجهة - سنة الميلاد
         int ageTemporel = destination - naissance;
+        // 5.1) حالة خاصة: سنة الوجهة قبل سنة الميلاد
+        if (ageTemporel < 0) {
+            btnApprouver.setEnabled(false);
+            tvAvertissement.setText("⚠ Année de destination avant la naissance");
+        }
 
         // 4) عرض الملخص على شكل "جواز سفر"
         tvNom.setText("Nom : " + nom);
