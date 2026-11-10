@@ -6,6 +6,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.douaneapp.ResultActivity;
+
 /**
  * النشاط 2: ماسح المفارقة الزمنية (جواز السفر)
  */
@@ -37,32 +39,31 @@ public class VerificationActivity extends AppCompatActivity {
 
         // 2) قراءة البيانات المرسلة (المفاتيح تُبنى بالدالة static)
         Intent recu = getIntent();
-        nom = recu.getStringExtra(CleExtras.cle(CleExtras.MATRICULE, CleExtras.NOM));
-        int naissance = recu.getIntExtra(CleExtras.cle(CleExtras.MATRICULE, CleExtras.NAISSANCE), 0);
-        int destination = recu.getIntExtra(CleExtras.cle(CleExtras.MATRICULE, CleExtras.DESTINATION), 0);
-        String motif = recu.getStringExtra(CleExtras.cle(CleExtras.MATRICULE, CleExtras.MOTIF));
+        nom = recu.getStringExtra(Keys.build(Keys.MATRICULE, Keys.SUFFIX_NOM));
+        int naissance = recu.getIntExtra(Keys.build(Keys.MATRICULE, Keys.SUFFIX_NAISSANCE), 0);
+        int destination = recu.getIntExtra(Keys.build(Keys.MATRICULE, Keys.SUFFIX_DESTINATION), 0);
+        String motif = recu.getStringExtra(Keys.build(Keys.MATRICULE, Keys.SUFFIX_MOTIF));
 
         // 3) حساب العمر الزمني = سنة الوجهة - سنة الميلاد
         int ageTemporel = destination - naissance;
         // 5.1) حالة خاصة: سنة الوجهة قبل سنة الميلاد
         if (ageTemporel < 0) {
-            btnApprouver.setEnabled(false);
             tvAvertissement.setText("⚠ Année de destination avant la naissance");
         }
 
         // 4) عرض الملخص على شكل "جواز سفر"
         tvNom.setText("Nom : " + nom);
-        tvAge.setText("Âge temporel : " + ageTemporel + " ans");
+        tvAge.setText("Âge temporal : " + ageTemporel + " ans");
         tvMotif.setText("Motif : " + motif);
         tvTrajet.setText("Trajet : " + naissance + " → " + destination);
 
         // 5) القاعدة: إذا كان السبب "Modification du passé" والفرق عدد أولي
         //    يتم تعطيل زر "Approuver" فور تحميل النشاط
-        if (CleExtras.MOTIF_MODIF_PASSE.equals(motif) && estPremier(ageTemporel)) {
+        if (getString(R.string.motif_modification).equals(motif) && estPremier(Math.abs(ageTemporel))) {
             btnApprouver.setEnabled(false);
-            tvAvertissement.setText("⚠ Paradoxe détecté : approbation impossible");
+            tvAvertissement.setText("⚠ Paradoxe detected : approbation impossible");
         } else {
-            tvAvertissement.setText("Aucun paradoxe détecté");
+            tvAvertissement.setText("Audun paradoxe detected");
         }
 
         // 6) زر الموافقة -> verdict = true
@@ -87,8 +88,8 @@ public class VerificationActivity extends AppCompatActivity {
      */
     private void lancerVerdict(boolean approuve) {
         Intent intent = new Intent(VerificationActivity.this, ResultActivity.class);
-        intent.putExtra(CleExtras.cle(CleExtras.MATRICULE, CleExtras.VERDICT), approuve);
-        intent.putExtra(CleExtras.cle(CleExtras.MATRICULE, CleExtras.NOM), nom);
+        intent.putExtra(Keys.build(Keys.MATRICULE, Keys.SUFFIX_VERDICT), approuve);
+        intent.putExtra(Keys.build(Keys.MATRICULE, Keys.SUFFIX_NOM), nom);
         startActivity(intent);
     }
 
