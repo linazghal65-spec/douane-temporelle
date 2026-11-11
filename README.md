@@ -13,5 +13,5 @@ Code commenté en arabe
 
 Équipe
 Hamza Amara A03 : MainActivity + Keys
-Abdelkader Jlassi A02 : VerificationActivity
+Abdelkader Jelassi A02 : VerificationActivity
 Lina Zghal A03 : ResultActivity + README
